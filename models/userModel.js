@@ -1,5 +1,6 @@
 const Joi = require("joi");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 const { default: mongoose } = require("mongoose");
 
 const userSchema = new mongoose.Schema({
@@ -13,8 +14,7 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.generateAuthToken = function () {
   const token = jwt.sign(
     { _id: this._id, role: this.role },
-    // process.env.jwtPrivateKey
-    "1234"
+    process.env.JWT_PRIVATE_KEY
   );
   return token;
 };
