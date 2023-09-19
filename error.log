@@ -1,0 +1,10 @@
+
+{"err":{},"level":"error","message":"validateToy is not defined"}
+{"err":{},"level":"error","message":"Joi.string(...).min(...).max(...).required(...).unique is not a function"}
+{"err":{},"level":"error","message":"Cannot read properties of null (reading 'user_id')"}
+{"err":{"kind":"ObjectId","message":"Cast to ObjectId failed for value \"64f05212a7b77ca6102f\" (type string) at path \"_id\" for model \"Toy\"","name":"CastError","path":"_id","reason":{},"stringValue":"\"64f05212a7b77ca6102f\"","value":"64f05212a7b77ca6102f","valueType":"string"},"level":"error","message":"Cast to ObjectId failed for value \"64f05212a7b77ca6102f\" (type string) at path \"_id\" for model \"Toy\""}
+{"err":{},"level":"error","message":"Cannot read properties of null (reading 'user_id')"}
+{"err":{},"level":"error","message":"Cannot read properties of null (reading 'user_id')"}
+{"err":{},"level":"error","message":"toy.remove is not a function"}
+{"err":{},"level":"error","message":"toy.remove is not a function"}
+{"err":{},"level":"error","message":"toy.remove is not a function"}
