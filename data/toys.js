@@ -129,7 +129,7 @@ async function search() {
   console.log(toys);
 }
 
-async function createThreeToys() {
+module.exports.createThreeToys = async function createThreeToys() {
   try {
     const createdToys = [];
     const data = toys;
@@ -142,4 +142,4 @@ async function createThreeToys() {
   } catch (error) {
     console.error("Error creating toys:", error);
   }
-}
+};

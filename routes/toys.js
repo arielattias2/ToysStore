@@ -36,7 +36,7 @@ router.get("/", async (req, res, next) => {
 // @desc Get singel toy by id
 // @route GET /toys/single/:id
 // @access Public
-router.get("single/:id", async (req, res) => {
+router.get("/single/:id", async (req, res) => {
   if (!req.params.id) return res.status(400).send("toy id is required");
 
   const toyId = req.params.id;
