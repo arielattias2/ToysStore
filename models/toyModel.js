@@ -22,7 +22,6 @@ const toySchema = new mongoose.Schema({
   },
   img_url: {
     type: String,
-    required: true,
   },
   price: {
     type: Number,
@@ -47,7 +46,7 @@ function validateToy(toy) {
     name: Joi.string().min(5).max(50).required(),
     info: Joi.string().required(),
     category: Joi.string().min(5).max(50).required(),
-    img_url: Joi.string().required(),
+    img_url: Joi.string(),
     price: Joi.number().min(0).max(100).required(),
     user_id: Joi.string(),
   });

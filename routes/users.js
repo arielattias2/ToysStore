@@ -5,18 +5,16 @@ const auth = require("../middleware/auth");
 const { User, validateUser } = require("../models/userModel");
 const router = express.Router();
 
+// @desc Get info about logined user
+// @route GET /users/me
+// @access Private
 router.get("/me", auth, async (req, res) => {
   const user = await User.findById(req.user._id).select("-password");
   res.send(user);
 });
 
-router.get("/", async (req, res) => {
-  const users = await User.find({});
-  res.send(users);
-});
-
 // @desc Register a user
-// @route POST /api/users
+// @route POST /users
 // @access Public
 router.post("/", async (req, res) => {
   //check valid req
@@ -36,15 +34,9 @@ router.post("/", async (req, res) => {
     password: password,
     email: req.body.email,
   });
-  //return result
-  try {
-    const result = await user.save();
-    res.json(_.pick(result, ["name", , "email", "_id"]));
-  } catch (e) {
-    res.status(400).send(e.message);
-  }
-});
 
-//login?
+  const result = await user.save();
+  res.json(_.pick(result, ["name", , "email", "_id"]));
+});
 
 module.exports = router;

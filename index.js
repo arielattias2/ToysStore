@@ -1,4 +1,4 @@
-require("express-async-errors"); // Using to handle async errors (wrap each route)
+require("express-async-errors"); // Using this to handle async errors (wrap each route)
 const express = require("express");
 const logger = require("./startup/logger");
 

@@ -3,9 +3,13 @@ const router = express.Router();
 const { Toy, validateToy } = require("../models/toyModel");
 const auth = require("../middleware/auth");
 
-// Get toys with optional search parameters
+// @desc Get toys with optional search parameters
+// @route GET /toys/?limit=X&page=X&category=X&q=q
+// @access Public
 router.get("/", async (req, res, next) => {
   let query = {};
+  const limit = req.query.limit || 10;
+  const page = req.query.page - 1 || 0;
 
   if (req.query.category) {
     const category = decodeURIComponent(req.query.category);
@@ -14,7 +18,6 @@ router.get("/", async (req, res, next) => {
   }
 
   if (req.query.q) {
-    console.log("q");
     const searchQuery = req.query.q;
     query.$or = [
       { name: { $regex: searchQuery, $options: "i" } },
@@ -22,11 +25,20 @@ router.get("/", async (req, res, next) => {
     ];
   }
 
-  const toys = await Toy.find(query);
+  //Search toys by query and send it
+  const toys = await Toy.find(query)
+    .limit(limit)
+    .skip(page * limit);
+
   res.json(toys);
 });
 
-router.get("/:id", async (req, res) => {
+// @desc Get singel toy by id
+// @route GET /toys/single/:id
+// @access Public
+router.get("single/:id", async (req, res) => {
+  if (!req.params.id) return res.status(400).send("toy id is required");
+
   const toyId = req.params.id;
 
   const toy = await Toy.findById(toyId);
@@ -38,6 +50,9 @@ router.get("/:id", async (req, res) => {
   res.status(200).json(toy);
 });
 
+// @desc Post a toy
+// @route POST /toys
+// @access Private
 router.post("/", auth, async (req, res) => {
   const { error } = validateToy(req.body);
   if (error) return res.status(400).json(error.details[0].message);
@@ -45,6 +60,7 @@ router.post("/", auth, async (req, res) => {
   let toy = await Toy.findOne({ name: req.body.name });
   if (toy) return res.status(400).send("Toy name already exists");
 
+  //Add toy to db and return it
   toy = new Toy(req.body);
   toy.user_id = req.user._id;
 
@@ -52,10 +68,14 @@ router.post("/", auth, async (req, res) => {
   res.status(201).json(toy);
 });
 
+// @desc Edit a toy
+// @route Put /toys/:id
+// @access Private
 router.put("/:id", auth, async (req, res) => {
   const { error } = validateToy(req.body);
   if (error) return res.status(400).json(error.details[0].message);
 
+  //Checks is toy name already exists
   let toy = await Toy.findOne({ name: req.body.name });
   if (toy) return res.status(400).json({ error: "Toy Name already exists" });
 
@@ -65,8 +85,7 @@ router.put("/:id", auth, async (req, res) => {
     return res.status(404).json({ error: "Item not found" });
   }
 
-  // ,user_id:req.tokenData._id - דואג שרק בעל הרשומה יוכל
-  // למחוק את הרשומה לפי הטוקן
+  //Checks user authorization
   if (req.user._id !== toy.user_id) {
     return res.status(403).json({ error: "Unauthorized" });
   }
@@ -77,6 +96,9 @@ router.put("/:id", auth, async (req, res) => {
   res.status(200).json(toy);
 });
 
+// @desc Delete a toy
+// @route DELETE /toys/:id
+// @access Private
 router.delete("/:id", auth, async (req, res) => {
   // Find the toy by ID
   const id = req.params.id;
@@ -86,8 +108,7 @@ router.delete("/:id", auth, async (req, res) => {
     return res.status(404).json({ error: "Not found" });
   }
 
-  // ,user_id:req.tokenData._id - דואג שרק בעל הרשומה יוכל
-  // למחוק את הרשומה לפי הטוקן
+  //Checks user authorization
   if (req.user._id !== toy.user_id) {
     return res.status(403).json({ error: "Unauthorized" });
   }
