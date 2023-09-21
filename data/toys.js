@@ -1,3 +1,5 @@
+const logger = require("../startup/logger");
+const { Toy } = require("../models/toyModel");
 const toys = [
   {
     name: "Action Figure 1",
@@ -129,7 +131,7 @@ async function search() {
   console.log(toys);
 }
 
-module.exports.createThreeToys = async function createThreeToys() {
+module.exports.createToys = async function createToys() {
   try {
     const createdToys = [];
     const data = toys;
@@ -138,8 +140,18 @@ module.exports.createThreeToys = async function createThreeToys() {
       const savedToy = await toy.save();
       createdToys.push(savedToy);
     }
-    console.log("Three toys created:", createdToys);
+    console.log(" toys created:", createdToys);
   } catch (error) {
     console.error("Error creating toys:", error);
   }
+};
+
+module.exports.deleteAll = async function deleteAll() {
+  const toys = await Toy.find({});
+  logger.info("toys" + toys);
+  // try {
+  //   await Toy.deleteMany({});
+  // } catch (error) {
+  //   console.error("Error creating toys:", error);
+  // }
 };

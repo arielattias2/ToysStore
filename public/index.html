@@ -40,14 +40,14 @@
                         <div id="flush-collapseFive" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <div class="pt-2 form-inline">Sign Up:<a class="nav-link ps-1 d-inline-block"
-                                        href="https://toys4you.herokuapp.com/users/signUp">/users/signUp</a><span>
+                                <div class="pt-2 form-inline">Sign Up:<a target="_blank" class="nav-link ps-1 d-inline-block"
+                                        href="https://frantic-cod-fez.cyclic.cloud/users">/users</a><span>
                                         (POST)</span>
                                 </div>
                                 <li class="pt-2 form-inline">user<span class="ps-2"> (required)</span></li>
                                 <li class="pt-2 form-inline">email<span class="ps-2"> (required)</span></li>
                                 <li class="pt-2 form-inline">password<span class="ps-2"> (required)</span></li>
-                                <li class="pt-2 form-inline">role</li>
+                                
                             </div>
                         </div>
                     </div>
@@ -64,8 +64,8 @@
                         <div id="flush-collapseSix" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <div class="pt-2 form-inline">Sign Up:<a class="nav-link ps-1 d-inline-block"
-                                        href="https://toys4you.herokuapp.com/users/signIn">/users/signIn</a><span>
+                                <div class="pt-2 form-inline">Login:<a target="_blank" class="nav-link ps-1 d-inline-block"
+                                        href="https://frantic-cod-fez.cyclic.cloud/users/login">/users/login</a><span>
                                         (POST)</span>
                                 </div>
                                 <li class="pt-2 form-inline">email<span class="ps-2"> (required)</span></li>
@@ -85,10 +85,10 @@
                         <div id="flush-collapseSeven" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <div class="pt-2 form-inline">Add product - (only for register user - must send
-                                    user's auth-token through headers):<a
+                                <div class="pt-2 form-inline">Authenticate user info:<a
+                                    target="_blank"
                                         class="nav-link ps-1 d-inline-block"
-                                        href="https://toys4you.herokuapp.com/users/myInfo">/toys/myinfo</a><span>
+                                        href="https://frantic-cod-fez.cyclic.cloud/users/me">/users/me</a><span>
                                         (GET)</span>
                                 </div>
                             </div>
@@ -98,43 +98,43 @@
                         <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                Get products
+                                Get toys
                             </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                             data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <li class="pt-2 form-inline">Get 10 products by page number:<a
-                                        class="nav-link ps-1 d-inline-block" href="https://toys4you.herokuapp.com/toys?p=1"
-                                        target="_blank">/toys?p=number</a><span> (GET)</span>
+                                <li class="pt-2 form-inline">Get all toys (diffult page and limit, 0 and 10):<a
+                                    class="nav-link ps-1 d-inline-block" href="https://frantic-cod-fez.cyclic.cloud/toys"
+                                    target="_blank">/toys</a><span> (GET)</span>
+                            </li>
+                            <li class="pt-2 form-inline">Get single toy by id:<a
+                                class="nav-link ps-1 d-inline-block"
+                                href="https://frantic-cod-fez.cyclic.cloud/toys/single/650c0c1f0565678260b32f0a"
+                                target="_blank">/toys/single/:id</a><span> (GET)</span>
+                        </li>
+                        <li class="pt-2 form-inline">Get all toys by category:<a
+                            class="nav-link ps-1 d-inline-block"
+                            href="https://frantic-cod-fez.cyclic.cloud/toys?category=action"
+                            target="_blank">/toys?category=category name</a><span> (GET)</span>
+                        </li>
+                                <li class="pt-2 form-inline">Get 10 toys by page number:<a
+                                        class="nav-link ps-1 d-inline-block" href="https://frantic-cod-fez.cyclic.cloud/toys?page=1"
+                                        target="_blank">/toys?page=number</a><span> (GET)</span>
                                 </li>
-                                <li class="pt-2 form-inline">Get X products in each page:<a
+                                <li class="pt-2 form-inline">Get X toys in each page:<a
                                         class="nav-link ps-1 d-inline-block"
-                                        href="https://toys4you.herokuapp.com/toys?pp=100"
-                                        target="_blank">/toys?pp=number</a><span> (GET)</span>
+                                        href="https://frantic-cod-fez.cyclic.cloud/toys?limit=4"
+                                        target="_blank">/toys?limit=number</a><span> (GET)</span>
                                 </li>
-                                <li class="pt-2 form-inline">Search products by name or info:<a
+                                <li class="pt-2 form-inline">Search toys by name or info:<a
                                         class="nav-link ps-1 d-inline-block"
-                                        href="https://toys4you.herokuapp.com/toys?s=toy"
-                                        target="_blank">/toys?s=key-word</a><span> (GET)</span>
+                                        href="https://frantic-cod-fez.cyclic.cloud/toys?q=puzzle"
+                                        target="_blank">/toys?q=search query</a><span> (GET)</span>
                                 </li>
-                                <li class="pt-2 form-inline">Sort products:<a class="nav-link ps-1 d-inline-block"
-                                        href="https://toys4you.herokuapp.com/toys?sort=name"
-                                        target="_blank">/toys?sort=sort-key</a><span> (GET)</span>
-                                </li>
-                                <li class="pt-2 form-inline">Reverse by sort key:<a class="nav-link ps-1 d-inline-block"
-                                        href="https://toys4you.herokuapp.com/toys?sort=name&r=y"
-                                        target="_blank">/toys?r=y</a><span> (GET)</span>
-                                </li>
-                                <li class="pt-2 form-inline">Price range:<a class="nav-link ps-1 d-inline-block"
-                                        href="https://toys4you.herokuapp.com/toys?min=10&max=100"
-                                        target="_blank">/toys?min=number&max=number</a><span> (GET)</span>
-                                </li>
-                                <li class="pt-2 form-inline">Get all products by category:<a
-                                        class="nav-link ps-1 d-inline-block"
-                                        href="https://toys4you.herokuapp.com/toys/category/cars"
-                                        target="_blank">/toys/category/:category-name</a><span> (GET)</span>
-                                </li>
+                            
+                              
+                               
                             </div>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
                             <div class="accordion-body">
                                 <div class="pt-2 form-inline">Get product - (only for register user - must send user's
                                     auth-token through headers):<a class="nav-link ps-1 d-inline-block"
-                                        href="https://toys4you.herokuapp.com/toys" target="_blank">/toys</a><span>
+                                        href="https://frantic-cod-fez.cyclic.cloud/toys" target="_blank">/toys</a><span>
                                         (POST)</span>
                                 </div>
                                 <li class="pt-2 form-inline">name<span class="ps-2"> (required)</span></li>
@@ -159,7 +159,7 @@
                                 <li class="pt-2 form-inline">category<span class="ps-2"> (required)</span></li>
                                 <li class="pt-2 form-inline">img_url</li>
                                 <li class="pt-2 form-inline">price<span class="ps-2"> (required)</span></li>
-                                <li class="pt-2 form-inline">user_id<span class="ps-2"> (required)</span></li>
+                               
                             </div>
                         </div>
                     </div>
@@ -176,8 +176,8 @@
                             aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <div class="pt-2 form-inline">Edit product - (only for register user - must send user's
-                                    auth-token through headers):<a class="nav-link ps-1 d-inline-block"
-                                        href="https://toys4you.herokuapp.com/toys">/toys/:_id (toy)</a><span>
+                                    auth-token through headers):<a target="_blank" class="nav-link ps-1 d-inline-block"
+                                        href="https://frantic-cod-fez.cyclic.cloud/toys/:id">/toys/:id </a><span>
                                         (PUT)</span>
                                 </div>
                                 <li class="pt-2 form-inline">name <span class="ps-2"> (required)</span></li>
@@ -185,7 +185,7 @@
                                 <li class="pt-2 form-inline">category <span class="ps-2"> (required)</span></li>
                                 <li class="pt-2 form-inline">img_url</li>
                                 <li class="pt-2 form-inline">price <span class="ps-2"> (required)</span></li>
-                                <li class="pt-2 form-inline">user_id <span class="ps-2"> (required)</span></li>
+                               
                             </div>
                         </div>
                     </div>
@@ -201,16 +201,11 @@
                         <div id="flush-collapseFour" class="accordion-collapse collapse"
                             aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <div class="pt-2 form-inline">Delete product - (only for register user - must send user's auth-token through headers):<a class="nav-link ps-1 d-inline-block"
-                                        href="https://toys4you.herokuapp.com/toys">/toys/:_id (toy)</a><span>
+                                <div class="pt-2 form-inline">Delete product - (only for register user - must send user's auth-token through headers):<a target="_blank" class="nav-link ps-1 d-inline-block"
+                                        href="https://frantic-cod-fez.cyclic.cloud/toys/:id">/toys/:id </a><span>
                                         (DELETE)</span>
                                 </div>
-                                <li class="pt-2 form-inline">name<span class="ps-2"> (required)</span></li>
-                                <li class="pt-2 form-inline">info<span class="ps-2"> (required)</span></li>
-                                <li class="pt-2 form-inline">category<span class="ps-2"> (required)</span></li>
-                                <li class="pt-2 form-inline">img_url</li>
-                                <li class="pt-2 form-inline">price<span class="ps-2"> (required)</span></li>
-                                <li class="pt-2 form-inline">user_id<span class="ps-2"> (required)</span></li>
+   
                             </div>
                         </div>
                     </div>

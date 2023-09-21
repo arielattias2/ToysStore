@@ -8,6 +8,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+data/
+
 # Ignore IDE or editor-specific files
 .vscode/
 .idea/

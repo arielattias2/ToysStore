@@ -9,7 +9,8 @@ const auth = require("../middleware/auth");
 router.get("/", async (req, res, next) => {
   let query = {};
   const limit = req.query.limit || 10;
-  const page = req.query.page - 1 || 0;
+  let page = req.query.page - 1 || 0;
+  if (page < 0) page = 0;
 
   if (req.query.category) {
     const category = decodeURIComponent(req.query.category);

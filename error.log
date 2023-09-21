@@ -14,3 +14,6 @@
 {"err":{},"level":"error","message":"limit is not defined"}
 {"err":{},"level":"error","message":"path is not defined"}
 {"err":{},"level":"error","message":"path is not defined"}
+{"err":{"$clusterTime":{"clusterTime":{"$timestamp":"7281206397042163722"},"signature":{"hash":"NeLnRSKhdROsVLLulyet1YKRqKM=","keyId":{"high":1693914766,"low":5,"unsigned":false}}},"code":51024,"codeName":"Location51024","ok":0,"operationTime":{"$timestamp":"7281206397042163722"}},"level":"error","message":"BSON field 'skip' value must be >= 0, actual value '-10'"}
+{"err":{"$clusterTime":{"clusterTime":{"$timestamp":"7281206654740201480"},"signature":{"hash":"kNA6XAppSNL8opQ79vY7Rdfyjy4=","keyId":{"high":1693914766,"low":5,"unsigned":false}}},"code":51024,"codeName":"Location51024","ok":0,"operationTime":{"$timestamp":"7281206654740201480"}},"level":"error","message":"BSON field 'skip' value must be >= 0, actual value '-10'"}
+{"err":{},"level":"error","message":"Assignment to constant variable."}

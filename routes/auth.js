@@ -3,18 +3,13 @@ const express = require("express");
 const _ = require("lodash");
 const { User } = require("../models/userModel");
 const Joi = require("joi");
+const logger = require("../startup/logger");
 const router = express.Router();
-
-router.get("/", async (req, res) => {
-  const users = await User.find({});
-  res.send(users);
-});
 
 // @desc Login a user
 // @route POST /api/auth
 // @access Public
 router.post("/", async (req, res) => {
-  console.log(req.body);
   //check valid req
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
