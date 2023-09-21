@@ -3,7 +3,6 @@ const express = require("express");
 const _ = require("lodash");
 const { User } = require("../models/userModel");
 const Joi = require("joi");
-const logger = require("../startup/logger");
 const router = express.Router();
 
 // @desc Login a user
